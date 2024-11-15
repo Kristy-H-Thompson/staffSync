@@ -2,13 +2,13 @@ const { Client } = require('pg');
 require('dotenv').config();
 console.log("db pass", process.env.DB_PASSWORD)
 
-// Retrieve credentials from environment variables
+// Retrieve credentials from the .env file
 const client = new Client({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
     database: 'staff_db',
     password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,  // e.g., 5432 for PostgreSQL
+    port: process.env.DB_PORT,
   });
 
 // Connect to the database
@@ -16,9 +16,10 @@ client.connect()
   .then(() => {
     console.log('Connected to PostgreSQL database');
   })
+  // error handling
   .catch(err => {
     console.error('Error connecting to the database', err.stack);
   });
 
-// Export the client so you can use it in other parts of your app
+
 module.exports = client;
