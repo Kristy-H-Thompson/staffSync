@@ -4,6 +4,7 @@ const db = require('./db');
 const viewDepartments = async () => {
     try {
         return await db.query('SELECT * FROM department;');
+    //error handling
     } catch (error) {
         console.error('Error fetching departments:', error.message);
         throw new Error('Error fetching departments.');
@@ -18,6 +19,7 @@ const viewRoles = async () => {
             FROM role
             JOIN department ON role.department_id = department.id;
         `);
+    //error handling
     } catch (error) {
         console.error('Error fetching roles:', error.message);
         throw new Error('Error fetching roles.');
@@ -35,6 +37,7 @@ const viewEmployees = async () => {
             JOIN department ON role.department_id = department.id
             LEFT JOIN employee manager ON employee.manager_id = manager.id;
         `);
+    //error handling
     } catch (error) {
         console.error('Error fetching employees:', error.message);
         throw new Error('Error fetching employees.');
@@ -48,6 +51,7 @@ const addDepartment = async (name) => {
             throw new Error('Department name is required.');
         }
         return await db.query('INSERT INTO department (name) VALUES ($1) RETURNING *;', [name]);
+    // error handling
     } catch (error) {
         console.error('Error adding department:', error.message);
         throw new Error('Error adding department.');
@@ -193,7 +197,7 @@ const deleteEmployee = async (employeeId) => {
 
 // Total budget of a department (sum of salaries)
 async function totalDepartmentBudget(departmentId) {
-    console.log('Received departmentId:', departmentId);  // Log the value
+    console.log('Received departmentId:', departmentId);
     try {
       if (!departmentId) {
         throw new Error('Invalid department ID provided.');
@@ -204,7 +208,7 @@ async function totalDepartmentBudget(departmentId) {
         [departmentId]
       );
   
-      console.log('Query result:', result.rows); // Log the query result
+      console.log('Query result:', result.rows); 
   
       if (!result.rows || result.rows.length === 0 || result.rows[0].total_budget === null) {
         throw new Error('No budget data found for department.');
