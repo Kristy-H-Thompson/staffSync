@@ -1,13 +1,15 @@
 const { Client } = require('pg');
+require('dotenv').config();
+console.log("db pass", process.env.DB_PASSWORD)
 
-// Create a client instance and configure it
+// Retrieve credentials from environment variables
 const client = new Client({
-  user: 'postgres',          // Replace with your PostgreSQL username
-  host: 'localhost',              // Replace with your PostgreSQL server address (localhost is fine for local setups)
-  database: 'staff_db',      // Replace with your database name
-  password: 'LittleBird51423!',      // Replace with your password
-  port: 5432                      // Default PostgreSQL port
-});
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: 'staff_db',
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,  // e.g., 5432 for PostgreSQL
+  });
 
 // Connect to the database
 client.connect()
