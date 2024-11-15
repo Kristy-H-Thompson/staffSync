@@ -40,6 +40,8 @@ To use this application install all dependencies listed in the package.json file
 ## Usage
 Once all the dependencies have been installed, then use the node index.js command in your terminal.
 
+## Live demo
+[link](https://drive.google.com/file/d/1P4EtECP367esbrNcRkglSNNc58tUQ7KN/view?usp=sharing)
 
 ## Credits
 ### Contributors

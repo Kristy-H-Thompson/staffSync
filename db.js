@@ -1,6 +1,5 @@
 const { Client } = require('pg');
 require('dotenv').config();
-console.log("db pass", process.env.DB_PASSWORD)
 
 // Retrieve credentials from the .env file
 const client = new Client({
