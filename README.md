@@ -53,6 +53,7 @@ Once all the dependencies have been installed, then use the node index.js comman
 - Postgres instalation guide: [Link](https://coding-boot-camp.github.io/full-stack/postgresql/postgresql-installation-guide)
 - Postgres documentation: [Link](https://www.postgresql.org/docs/current/app-psql.html)
 - Inquirer [link](https://www.npmjs.com/package/inquirer)
+- PG package [link](https://www.npmjs.com/package/pg)
 
 
 ## License
